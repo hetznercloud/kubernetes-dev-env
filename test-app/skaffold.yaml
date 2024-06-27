@@ -1,0 +1,16 @@
+apiVersion: skaffold/v4beta11
+kind: Config
+metadata:
+  name: test-app
+
+build:
+  artifacts:
+    - image: test-app
+      ko: {}
+
+manifests:
+  rawYaml:
+    - test-app.yaml
+
+deploy:
+  kubectl: {}
