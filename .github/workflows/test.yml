@@ -36,6 +36,9 @@ jobs:
           kubectl: v1.29.6 # renovate: datasource=github-releases depName=kubernetes/kubernetes
           skaffold: v2.12.0 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
 
+      - name: Setup k3sup
+        run: curl -sLS https://get.k3sup.dev | sh
+
       - uses: actions/setup-go@v5
         with:
           go-version-file: test-app/go.mod
