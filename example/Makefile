@@ -27,4 +27,4 @@ port-forward:
 	bash files/registry-port-forward.sh
 
 clean:
-	rm -Rf files/* .terraform/ terraform.tfstate* env.auto.tfvars
+	rm -Rf files/ .terraform/ terraform.tfstate* env.auto.tfvars
