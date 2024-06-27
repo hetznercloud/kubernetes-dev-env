@@ -26,3 +26,19 @@ jobs:
 
       - if: failure()
         run: echo "::error::Check failed, please run 'tofu validate; tofu fmt' and commit the changes."
+
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Setup python
+        uses: actions/setup-python@v5
+        with:
+          python-version: 3.x
+
+      - name: Install dependencies
+        run: pip install pre-commit
+
+      - name: Run pre-commit
+        run: pre-commit run --all-files --show-diff-on-failure
