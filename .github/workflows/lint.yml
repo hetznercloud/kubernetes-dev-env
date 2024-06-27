@@ -21,8 +21,6 @@ jobs:
           tofu_version: v1.7.2 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
-      - name: Install dependencies
-        run: pip install pre-commit
-
-      - name: Run pre-commit
-        run: pre-commit run --all-files --show-diff-on-failure
+      - uses: pre-commit/action@v3.0.1
+        with:
+          extra_args: --all-files
