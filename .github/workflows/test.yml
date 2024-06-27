@@ -38,7 +38,7 @@ jobs:
 
       - uses: actions/setup-go@v5
         with:
-          go-version-file: go.mod
+          go-version-file: test-app/go.mod
 
       - uses: hetznercloud/tps-action@main
 

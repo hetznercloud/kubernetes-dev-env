@@ -17,6 +17,7 @@ jobs:
           tofu_wrapper: false
 
       - run: |
+          tofu init
           tofu validate
           tofu fmt
 
