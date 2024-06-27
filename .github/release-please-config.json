@@ -5,7 +5,10 @@
   "packages": {
     ".": {
       "release-type": "terraform-module",
-      "package-name": "terraform-k8s-dev"
+      "package-name": "terraform-k8s-dev",
+      "extra-files": [
+        "example/main.tf"
+      ]
     }
   }
 }
