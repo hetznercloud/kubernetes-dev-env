@@ -56,10 +56,15 @@ jobs:
           source files/env.sh
 
           kubectl wait --for=condition=Ready --all node
-          kubectl wait --for=condition=Ready --all --all-namespaces deployment
+          kubectl wait --for=condition=Available --all --all-namespaces deployment
           kubectl wait --for=condition=Ready --all --all-namespaces pod
 
-          skaffold run ../test-app
+      - name: Deploy test app
+        working-directory: test-app
+        run: |
+          source ../example/files/env.sh
+
+          skaffold run
           kubectl wait --for=condition=Ready --all pod -l app=test-app
 
       - name: Cleanup
