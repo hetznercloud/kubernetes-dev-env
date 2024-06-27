@@ -43,7 +43,7 @@ jobs:
       - uses: hetznercloud/tps-action@main
 
       - name: Swap module source
-        run: sed -i -e 's|source = ".*"|source = ".."|' main.tf
+        run: sed -i -e 's|source = ".*"|source = "./.."|' main.tf
 
       - name: Setup environment
         run: make up
