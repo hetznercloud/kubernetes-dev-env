@@ -28,3 +28,23 @@ repos:
       - id: prettier
         files: \.(md|ya?ml)$
         exclude: ^CHANGELOG.md$
+
+  - repo: local
+    hooks:
+      - id: tofu fmt
+        name: tofu fmt
+        description: Format Terraform files.
+        require_serial: true
+        pass_filenames: false
+        entry: make fmt
+        language: system
+        files: (\.tf|\.tfvars)$
+
+      - id: tofu validate
+        name: tofu validate
+        description: Validates Terraform files.
+        require_serial: true
+        pass_filenames: false
+        entry: make validate
+        language: system
+        files: (\.tf|\.tfvars)$

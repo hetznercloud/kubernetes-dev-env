@@ -6,27 +6,6 @@ on:
   pull_request:
 
 jobs:
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: opentofu/setup-opentofu@v1
-        with:
-          tofu_version: v1.7.2 # renovate: datasource=github-releases depName=opentofu/opentofu
-          tofu_wrapper: false
-
-      - run: |
-          tofu init
-          tofu validate
-          tofu fmt
-
-      - name: Check uncommitted changes
-        run: git diff --exit-code
-
-      - if: failure()
-        run: echo "::error::Check failed, please run 'tofu validate; tofu fmt' and commit the changes."
-
   pre-commit:
     runs-on: ubuntu-latest
     steps:
@@ -36,6 +15,11 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: 3.x
+
+      - uses: opentofu/setup-opentofu@v1
+        with:
+          tofu_version: v1.7.2 # renovate: datasource=github-releases depName=opentofu/opentofu
+          tofu_wrapper: false
 
       - name: Install dependencies
         run: pip install pre-commit

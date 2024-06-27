@@ -12,6 +12,9 @@ env.auto.tfvars:
 .terraform:
 	tofu init
 
+validate: .terraform
+	tofu validate
+
 up: .terraform env.auto.tfvars
 	tofu apply -auto-approve
 	$(MAKE) port-forward
