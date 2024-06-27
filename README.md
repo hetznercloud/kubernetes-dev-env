@@ -20,13 +20,13 @@ To setup a development environment, make sure you installed the following tools:
 2. Deploy the development cluster:
 
 ```sh
-make -C dev up
+make -C example up
 ```
 
 3. Load the generated configuration to access the development cluster:
 
 ```sh
-source files/env.sh
+source example/files/env.sh
 ```
 
 4. Check that the development cluster is healthy:
@@ -38,5 +38,5 @@ kubectl get nodes -o wide
 ⚠️ Do not forget to clean up the development cluster once are finished:
 
 ```sh
-make -C dev down
+make -C example down
 ```
