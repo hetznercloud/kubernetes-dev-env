@@ -25,7 +25,7 @@ run_launchd() {
   launchctl submit \
     -l "$label" \
     -p "$(command -v kubectl)" \
-    -- kubectl --kubeconfig="$PWD/files/kubeconfig.yaml" port-forward -n kube-system svc/docker-registry 30666:5000
+    -- kubectl --kubeconfig="$KUBECONFIG" port-forward -n kube-system svc/docker-registry 30666:5000
 }
 
 if command -v systemctl > /dev/null; then

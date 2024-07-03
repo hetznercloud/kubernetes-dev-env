@@ -24,8 +24,7 @@ down: .terraform env.auto.tfvars
 	tofu destroy -auto-approve
 
 port-forward:
-	source files/env.sh
-	bash files/registry-port-forward.sh
+	source files/env.sh && bash files/registry-port-forward.sh
 
 clean:
 	rm -Rf files/ .terraform/ terraform.tfstate* env.auto.tfvars
