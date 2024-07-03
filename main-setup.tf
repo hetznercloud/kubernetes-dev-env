@@ -42,8 +42,12 @@ resource "null_resource" "k3sup_control" {
           --disable=servicelb \
           --disable=traefik \
           --flannel-backend=none \
+          %{~if var.use_cloud_routes~}
           --node-external-ip='${hcloud_server.control.ipv4_address}' \
           --node-ip='${hcloud_server_network.control.ip}'" \
+          %{~else~}
+          --node-ip='${hcloud_server.control.ipv4_address}'" \
+          %{~endif~}
         --local-path='${local.kubeconfig_path}'
     EOT
   }
@@ -84,8 +88,12 @@ resource "null_resource" "k3sup_worker" {
         --k3s-channel='${var.k3s_channel}' \
         --k3s-extra-args="\
           --kubelet-arg='cloud-provider=external' \
+          %{~if var.use_cloud_routes~}
           --node-external-ip='${hcloud_server.worker[count.index].ipv4_address}' \
           --node-ip='${hcloud_server_network.worker[count.index].ip}'"
+          %{~else~}
+          --node-ip='${hcloud_server.worker[count.index].ipv4_address}'"
+          %{~endif~}
       EOT
   }
 }
@@ -136,16 +144,19 @@ resource "helm_release" "cilium" {
     value = "kubernetes"
   }
   set {
-    name  = "tunnel"
-    value = "disabled"
+    name  = "routingMode"
+    value = var.use_cloud_routes ? "native" : "tunnel"
   }
   set {
+    # Only used if routingMode=native
     name  = "ipv4NativeRoutingCIDR"
     value = local.cluster_cidr
   }
 }
 
 resource "helm_release" "hcloud_cloud_controller_manager" {
+  count = var.deploy_hccm ? 1 : 0
+
   name       = "hcloud-cloud-controller-manager"
   chart      = "hcloud-cloud-controller-manager"
   repository = "https://charts.hetzner.cloud"
@@ -156,6 +167,12 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   set {
     name  = "networking.enabled"
     value = "true"
+  }
+
+  set {
+    name  = "env.HCLOUD_NETWORK_ROUTES_ENABLED.value"
+    value = tostring(var.use_cloud_routes)
+    type  = "string"
   }
 }
 
@@ -193,6 +210,7 @@ resource "local_file" "env" {
   content         = <<-EOT
     #!/usr/bin/env bash
 
+    export ENV_NAME=${var.name}
     export KUBECONFIG=${data.local_sensitive_file.kubeconfig.filename}
     export SKAFFOLD_DEFAULT_REPO=localhost:${module.registry_control.registry_port}
   EOT
