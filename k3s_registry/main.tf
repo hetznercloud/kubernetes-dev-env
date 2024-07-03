@@ -20,7 +20,7 @@ variable "server" {
   })
 }
 
-resource "null_resource" "k3sup_worker" {
+resource "null_resource" "k3s_registry" {
   triggers = {
     id = var.server.id
   }
