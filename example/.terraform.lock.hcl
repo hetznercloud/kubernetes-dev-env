@@ -5,6 +5,7 @@ provider "registry.opentofu.org/hashicorp/helm" {
   version     = "2.14.0"
   constraints = "2.14.0"
   hashes = [
+    "h1:K1yXsEeNhW/7YVSvsv55UaFSx4hHeKB1giPuQUKmFfQ=",
     "h1:ibK3MM61pVjBwBcrro56OLTHwUhhNglvGG9CloLvliI=",
     "zh:1c84ca8c274564c46497e89055139c7af64c9e1a8dd4f1cd4c68503ac1322fb8",
     "zh:211a763173934d30c2e49c0cc828b1e34a528b0fdec8bf48d2bb3afadd4f9095",
@@ -23,6 +24,7 @@ provider "registry.opentofu.org/hashicorp/kubernetes" {
   version     = "2.31.0"
   constraints = "2.31.0"
   hashes = [
+    "h1:MLk6rnv1ExXguVTT/lMa9VPubPYS6VF9sKBjzaVUASE=",
     "h1:z2qlqn6WbrjbezwQo4vvlwAgVUGz59klzDU4rlYhYi8=",
     "zh:0dd25babf78a88a61dd329b8c18538a295ea63630f1b69575e7898c89307da39",
     "zh:3138753e4b2ce6e9ffa5d65d73e9236169ff077c10089c7dc71031a0a139ff6d",
@@ -41,6 +43,7 @@ provider "registry.opentofu.org/hashicorp/local" {
   version     = "2.5.1"
   constraints = "2.5.1"
   hashes = [
+    "h1:87L+rpGao062xifb1VuG9YVFwp9vbDP6G2fgfYxUkQs=",
     "h1:GgW5qncKu4KnXLE1ZYv5iwmhSYtTNzsOvJAOQIyFR7E=",
     "zh:031c2c2070672b7e78e0aa15560839278dc57fe7cf1e58a617ac13c67b31d5fb",
     "zh:1ef64ea4f8382cd538a76f3d319f405d18130dc3280f1c16d6aaa52a188ecaa4",
@@ -59,6 +62,7 @@ provider "registry.opentofu.org/hashicorp/null" {
   version     = "3.2.2"
   constraints = "3.2.2"
   hashes = [
+    "h1:sU0t6ANQ4IfEwZbbBmcNeOCg2CDCViVb7L7QVfIHrCs=",
     "h1:xN1tSeF/rUBfaddk/AVqk4i65z/MMM9uVZWd2cWCCH0=",
     "zh:00e5877d19fb1c1d8c4b3536334a46a5c86f57146fd115c7b7b4b5d2bf2de86d",
     "zh:1755c2999e73e4d73f9de670c145c9a0dc5a373802799dff06a0e9c161354163",
@@ -77,6 +81,7 @@ provider "registry.opentofu.org/hashicorp/tls" {
   version     = "4.0.5"
   constraints = "4.0.5"
   hashes = [
+    "h1:LWGTWAUrC+/iTsNq0vxANvGOp+7Jnl4wAnSOW2Shqjc=",
     "h1:zEH0OgSkeXDqNWzmOUWDczrUwyyujAHvnbW79qdxVMI=",
     "zh:05a7dc3ac92005485714f87541ad6d0d478988b478c5774227a7d39b01660050",
     "zh:547e0def44080456169bf77c21037aa6dc9e7f3e644a8f6a2c5fc3e6c15cf560",
@@ -95,6 +100,7 @@ provider "registry.opentofu.org/hetznercloud/hcloud" {
   version     = "1.47.0"
   constraints = "1.47.0"
   hashes = [
+    "h1:KQbtq1sXF4deoc0DKgjyyJMdIuHfhfhAPkVV0DlTMRI=",
     "h1:aqEPcSpaWhKqbMs7c7Pf5ot6Tye7ntRitWsuNGPRPfk=",
     "zh:0759f0c23d0e59baab3382320eef4eb314e0c5967b6ef67ff07135da07a97b34",
     "zh:0e9ca84c4059d6d7e2c9f13d3c2b1cd91f7d9a47bedcb4b80c7c77d536eff887",

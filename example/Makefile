@@ -21,6 +21,7 @@ up: .terraform env.auto.tfvars
 
 down: .terraform env.auto.tfvars
 	tofu destroy -auto-approve
+	bash files/cleanup.sh
 
 port-forward:
 	source files/env.sh
