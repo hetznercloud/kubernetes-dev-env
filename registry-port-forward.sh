@@ -26,7 +26,7 @@ run_launchd() {
 <plist version="1.0">
 <dict>
     <key>Label</key>
-    <string>com.hetzner.cloud.k8sdev.portforward.plist</string>
+    <string>com.hetzner.cloud.k8sdev.registry-port-forward.plist</string>
     <key>Program</key>
     <string>$(which kubectl)</string>
     <key>ProgramArguments</key>
@@ -46,7 +46,12 @@ run_launchd() {
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>
-    <true/>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+    <key>ThrottleInterval</key>
+    <integer>5</integer>
 </dict>
 </plist>
 EOF
