@@ -18,50 +18,19 @@ run_systemd() {
 }
 
 run_launchd() {
-  FILEPATH="$HOME/Library/LaunchAgents/com.hetzner.cloud.k8sdev.registry-port-forward.plist"
+  label="k8s-registry-port-forward"
 
-  cat > "$FILEPATH" <<EOF
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-    <key>Label</key>
-    <string>com.hetzner.cloud.k8sdev.registry-port-forward.plist</string>
-    <key>Program</key>
-    <string>$(which kubectl)</string>
-    <key>ProgramArguments</key>
-    <array>
-        <string>kubectl</string>
-        <string>port-forward</string>
-        <string>-n</string>
-        <string>kube-system</string>
-        <string>svc/docker-registry</string>
-        <string>30666:5000</string>
-    </array>
-    <key>EnvironmentVariables</key>
-    <dict>
-        <key>KUBECONFIG</key>
-        <string>$PWD/files/kubeconfig.yaml</string>
-    </dict>
-    <key>RunAtLoad</key>
-    <true/>
-    <key>KeepAlive</key>
-    <dict>
-        <key>SuccessfulExit</key>
-        <false/>
-    </dict>
-    <key>ThrottleInterval</key>
-    <integer>5</integer>
-</dict>
-</plist>
-EOF
+  launchctl remove "$label" 2> /dev/null || true
 
-  launchctl load "$FILEPATH"
+  launchctl submit \
+    -l "$label" \
+    -p "$(which kubectl)" \
+    -- kubectl --kubeconfig="$PWD/files/kubeconfig.yaml" port-forward -n kube-system svc/docker-registry 30666:5000
 }
 
-if which systemctl > /dev/null; then
+if command -v systemctl > /dev/null; then
   run_systemd
-elif which launchctl > /dev/null; then
+elif command -v launchctl > /dev/null; then
   run_launchd
 else
   echo "No supported init system found"
