@@ -41,10 +41,8 @@ run_launchd() {
     <key>EnvironmentVariables</key>
     <dict>
         <key>KUBECONFIG</key>
-        <string>$KUBECONFIG</string>
+        <string>$PWD/files/kubeconfig.yaml</string>
     </dict>
-    <key>WorkingDirectory</key>
-    <string>$PWD</string>
     <key>RunAtLoad</key>
     <true/>
     <key>KeepAlive</key>

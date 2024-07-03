@@ -20,8 +20,8 @@ up: .terraform env.auto.tfvars
 	$(MAKE) port-forward
 
 down: .terraform env.auto.tfvars
-	tofu destroy -auto-approve
 	bash files/cleanup.sh
+	tofu destroy -auto-approve
 
 port-forward:
 	source files/env.sh
