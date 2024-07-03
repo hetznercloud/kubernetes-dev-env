@@ -30,7 +30,7 @@ resource "null_resource" "k3sup_control" {
   provisioner "local-exec" {
     command = <<-EOT
       k3sup install --print-config=false \
-        --ssh-key='${local_sensitive_file.ssh.filename}' \
+        --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.control.ipv4_address}' \
         --k3s-channel='${var.k3s_channel}' \
         --k3s-extra-args="\
@@ -78,7 +78,7 @@ resource "null_resource" "k3sup_worker" {
   provisioner "local-exec" {
     command = <<-EOT
       k3sup join \
-        --ssh-key='${local_sensitive_file.ssh.filename}' \
+        --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.worker[count.index].ipv4_address}' \
         --server-ip='${hcloud_server.control.ipv4_address}' \
         --k3s-channel='${var.k3s_channel}' \
