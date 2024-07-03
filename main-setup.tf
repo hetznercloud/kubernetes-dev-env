@@ -5,11 +5,15 @@ locals {
   # network (10.0.0.0/8) but must not overlap with the Subnet (10.0.0.0/24)
   cluster_cidr = "10.244.0.0/16"
 
-  registry_service_ip = "10.43.0.2"
-  registry_port       = 30666
-
   kubeconfig_path = abspath("${path.root}/files/kubeconfig.yaml")
   env_path        = abspath("${path.root}/files/env.sh")
+}
+
+module "registry_control" {
+  source = "./k3s_registry"
+
+  server      = hcloud_server.control
+  private_key = tls_private_key.ssh.private_key_openssh
 }
 
 resource "null_resource" "k3sup_control" {
@@ -21,20 +25,6 @@ resource "null_resource" "k3sup_control" {
   connection {
     host        = hcloud_server.control.ipv4_address
     private_key = tls_private_key.ssh.private_key_openssh
-  }
-
-  provisioner "remote-exec" {
-    inline = ["mkdir -p /etc/rancher/k3s"]
-  }
-  provisioner "file" {
-    content = yamlencode({
-      "mirrors" : {
-        "localhost:${local.registry_port}" : {
-          "endpoint" : ["http://${local.registry_service_ip}:5000"]
-        }
-      }
-    })
-    destination = "/etc/rancher/k3s/registries.yaml"
   }
 
   provisioner "local-exec" {
@@ -59,6 +49,15 @@ resource "null_resource" "k3sup_control" {
   }
 }
 
+module "registry_worker" {
+  source = "./k3s_registry"
+
+  count = var.worker_count
+
+  server      = hcloud_server.worker[count.index]
+  private_key = tls_private_key.ssh.private_key_openssh
+}
+
 resource "null_resource" "k3sup_worker" {
   count = var.worker_count
 
@@ -74,20 +73,6 @@ resource "null_resource" "k3sup_worker" {
   connection {
     host        = hcloud_server.worker[count.index].ipv4_address
     private_key = tls_private_key.ssh.private_key_openssh
-  }
-
-  provisioner "remote-exec" {
-    inline = ["mkdir -p /etc/rancher/k3s"]
-  }
-  provisioner "file" {
-    content = yamlencode({
-      "mirrors" : {
-        "localhost:${local.registry_port}" : {
-          "endpoint" : ["http://${local.registry_service_ip}:5000"]
-        }
-      }
-    })
-    destination = "/etc/rancher/k3s/registries.yaml"
   }
 
   provisioner "local-exec" {
@@ -184,7 +169,7 @@ resource "helm_release" "docker_registry" {
 
   set {
     name  = "service.clusterIP"
-    value = local.registry_service_ip
+    value = module.registry_control.registry_service_ip
   }
   set {
     name  = "tolerations[0].key"
@@ -209,7 +194,7 @@ resource "local_file" "env" {
     #!/usr/bin/env bash
 
     export KUBECONFIG=${data.local_sensitive_file.kubeconfig.filename}
-    export SKAFFOLD_DEFAULT_REPO=localhost:${local.registry_port}
+    export SKAFFOLD_DEFAULT_REPO=localhost:${module.registry_control.registry_port}
   EOT
   filename        = local.env_path
   file_permission = "0644"
