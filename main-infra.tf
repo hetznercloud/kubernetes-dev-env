@@ -68,12 +68,6 @@ resource "hcloud_server_network" "control" {
 }
 
 # Worker / Agent Nodes
-
-variable "worker_count" {
-  type    = number
-  default = 3
-}
-
 resource "hcloud_server" "worker" {
   count = var.worker_count
 
