@@ -7,7 +7,7 @@ on:
 jobs:
   release-please:
     # Do not run on forks.
-    if: github.repository == 'hetznercloud/terraform-k8s-dev'
+    if: github.repository == 'hetznercloud/kubernetes-dev-env'
 
     runs-on: ubuntu-latest
     steps:
