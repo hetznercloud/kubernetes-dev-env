@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.3.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.2.0...v0.3.0) (2024-07-04)
+
+
+### Features
+
+* change workers_count default to 1 ([#16](https://github.com/hetznercloud/kubernetes-dev-env/issues/16)) ([df359ff](https://github.com/hetznercloud/kubernetes-dev-env/commit/df359ff7ba3a0190e5e7507eae0ccf10efab3122))
+* necessary features for hcloud-cloud-controller-manager ([#14](https://github.com/hetznercloud/kubernetes-dev-env/issues/14)) ([d51ba12](https://github.com/hetznercloud/kubernetes-dev-env/commit/d51ba126d917bb752d6e446ee8039f6404a8f3a7))
+* write public key to local file  ([#17](https://github.com/hetznercloud/kubernetes-dev-env/issues/17)) ([88395fd](https://github.com/hetznercloud/kubernetes-dev-env/commit/88395fdd559bc7185a8594fb3c8fbce265472c6c))
+
 ## [0.2.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.1.0...v0.2.0) (2024-06-27)
 
 
