@@ -5,6 +5,16 @@ variable "name" {
   default     = "dev"
 }
 
+variable "deploy_hccm" {
+  description = "Deploy hcloud-cloud-controller-manager through Helm"
+  type        = bool
+  default     = true
+}
+variable "use_cloud_routes" {
+  description = "Use the Hetzner Cloud network routes for Pod traffic. Enables hcloud-cloud-controller-manager routes controller and Cilium native routing. Does not work with Robot servers."
+  type        = bool
+  default     = true
+}
 variable "worker_count" {
   description = "Number of worker for the environment"
   type        = number
