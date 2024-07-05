@@ -4,7 +4,6 @@ set -ue -o pipefail
 
 service="k8s-registry-port-forward"
 
-
 run_systemd() {
   description="Port Forward for Container Registry of k8s dev environment"
 
@@ -23,7 +22,6 @@ cleanup_systemd() {
   systemctl --user stop "$service.service" 2> /dev/null || true
 }
 
-
 run_launchd() {
   cleanup_launchd
 
@@ -37,45 +35,32 @@ cleanup_launchd() {
   launchctl remove "$service" 2> /dev/null || true
 }
 
-
-run() {
-  if command -v systemctl > /dev/null; then
-    run_systemd
-  elif command -v launchctl > /dev/null; then
-    run_launchd
-  else
-    echo "No supported init system found"
-    exit 1
-  fi
-}
-
-cleanup() {
-  if command -v systemctl > /dev/null; then
-    cleanup_systemd
-  elif command -v launchctl > /dev/null; then
-    cleanup_launchd
-  else
-    echo "No supported init system found"
-    exit 1
-  fi
-}
+if command -v systemctl > /dev/null; then
+  run="run_systemd"
+  cleanup="cleanup_systemd"
+elif   command -v launchctl > /dev/null; then
+  run="run_launchd"
+  cleanup="cleanup_launchd"
+else
+  echo "No supported init system found"
+  exit 1
+fi
 
 help() {
-  >&2 cat <<EOF
+  cat << EOF >&2
 Usage:
-  $0
-  $0 cleanup
+  $0 up
+  $0 down
 EOF
   exit 1
 }
 
-command="${1:-}"
-case $command in
-  "")
-    run
+case "${1:-}" in
+  "up")
+    $run
     ;;
-  "cleanup")
-    cleanup
+  "down")
+    $cleanup
     ;;
   *)
     help

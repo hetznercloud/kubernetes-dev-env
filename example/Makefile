@@ -19,11 +19,11 @@ up: .terraform env.auto.tfvars
 	$(MAKE) port-forward
 
 down: .terraform env.auto.tfvars
-	bash files/registry-port-forward.sh cleanup
+	files/registry-port-forward.sh down
 	tofu destroy -auto-approve
 
 port-forward:
-	source files/env.sh && bash files/registry-port-forward.sh
+	source files/env.sh && files/registry-port-forward.sh up
 
 clean:
 	rm -Rf files/ .terraform/ terraform.tfstate* env.auto.tfvars
