@@ -206,12 +206,6 @@ resource "local_file" "registry_port_forward" {
   file_permission = "0755"
 }
 
-resource "local_file" "cleanup" {
-  source          = "${path.module}/cleanup.sh"
-  filename        = "${path.root}/files/cleanup.sh"
-  file_permission = "0755"
-}
-
 resource "local_file" "env" {
   content         = <<-EOT
     #!/usr/bin/env bash
