@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.4.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.3.0...v0.4.0) (2024-07-05)
+
+
+### Features
+
+* output for the kubeconfig filename ([#22](https://github.com/hetznercloud/kubernetes-dev-env/issues/22)) ([8411724](https://github.com/hetznercloud/kubernetes-dev-env/commit/841172497191c1613393fad1ca2c21849f6ec1df))
+
 ## [0.3.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.2.0...v0.3.0) (2024-07-04)
 
 
