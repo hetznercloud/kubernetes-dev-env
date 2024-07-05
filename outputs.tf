@@ -12,3 +12,8 @@ output "control_server_ipv4" {
   description = "Public IPv4 of the control node"
   value       = hcloud_server.control.ipv4_address
 }
+
+output "kubeconfig_filename" {
+  description = "Path to the Kubeconfig file"
+  value       = data.local_sensitive_file.kubeconfig.filename
+}
