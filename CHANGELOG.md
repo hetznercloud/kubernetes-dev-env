@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.5.1](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.0...v0.5.1) (2024-07-08)
+
+
+### Bug Fixes
+
+* broken cluster if resources are installed in wrong order ([#25](https://github.com/hetznercloud/kubernetes-dev-env/issues/25)) ([28e1878](https://github.com/hetznercloud/kubernetes-dev-env/commit/28e1878afb389e33d474d8596935f522334e3c70))
+
 ## [0.5.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.4.0...v0.5.0) (2024-07-05)
 
 
