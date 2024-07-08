@@ -17,6 +17,8 @@ module "registry_control" {
 }
 
 resource "null_resource" "k3sup_control" {
+  depends_on = [module.registry_control]
+
   triggers = {
     id = hcloud_server.control.id
     ip = hcloud_server_network.control.ip
@@ -64,6 +66,8 @@ module "registry_worker" {
 
 resource "null_resource" "k3sup_worker" {
   count = var.worker_count
+
+  depends_on = [module.registry_worker]
 
   triggers = {
     id = hcloud_server.worker[count.index].id
@@ -157,6 +161,8 @@ resource "helm_release" "cilium" {
 resource "helm_release" "hcloud_cloud_controller_manager" {
   count = var.deploy_hccm ? 1 : 0
 
+  depends_on = [kubernetes_secret_v1.hcloud_token]
+
   name       = "hcloud-cloud-controller-manager"
   chart      = "hcloud-cloud-controller-manager"
   repository = "https://charts.hetzner.cloud"
@@ -177,6 +183,8 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
 }
 
 resource "helm_release" "docker_registry" {
+  depends_on = [helm_release.cilium]
+
   name       = "docker-registry"
   chart      = "docker-registry"
   repository = "https://helm.twun.io"
