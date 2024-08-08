@@ -2,21 +2,20 @@
 # Manual edits may be lost in future updates.
 
 provider "registry.opentofu.org/hashicorp/helm" {
-  version     = "2.14.0"
-  constraints = "2.14.0"
+  version     = "2.14.1"
+  constraints = "2.14.1"
   hashes = [
-    "h1:K1yXsEeNhW/7YVSvsv55UaFSx4hHeKB1giPuQUKmFfQ=",
-    "h1:ibK3MM61pVjBwBcrro56OLTHwUhhNglvGG9CloLvliI=",
-    "zh:1c84ca8c274564c46497e89055139c7af64c9e1a8dd4f1cd4c68503ac1322fb8",
-    "zh:211a763173934d30c2e49c0cc828b1e34a528b0fdec8bf48d2bb3afadd4f9095",
-    "zh:3dca0b703a2f82d3e283a9e9ca6259a3b9897b217201f3cddf430009a1ca00c9",
-    "zh:40c5cfd48dcef54e87129e19d31c006c2e3309ee6c09d566139eaf315a59a369",
-    "zh:6f23c00ca1e2663e2a208a7491aa6dbe2604f00e0af7e23ef9323206e8f2fc81",
-    "zh:77f8cfc4888600e0d12da137bbdb836de160db168dde7af26c2e44cf00cbf057",
-    "zh:97b99c945eafa9bafc57c3f628d496356ea30312c3df8dfac499e0f3ff6bf0c9",
-    "zh:a01cfc53e50d5f722dc2aabd26097a8e4d966d343ffd471034968c2dc7a8819d",
-    "zh:b69c51e921fe8c91e38f4a82118d0b6b0f47f6c71a76f506fde3642ecbf39911",
-    "zh:fb8bfc7b8106bef58cc5628c024103f0dd5276d573fe67ac16f343a2b38ecee8",
+    "h1:WB6ahIjX1hgmeB8Edn6AAImw5LrOvPxJP7pi0KhhEz0=",
+    "zh:3e0c73080563611451e7de1b5c28ce945da7027aac619df6506f8d5c420ba2d4",
+    "zh:5b8760f2b9798cf3160a4db4001463a3f1001359c74a6ef601a81bfbc4c4bd74",
+    "zh:64ab4ad0e650e717bf5932717a94b6f6be790b6f7f93b51da371c3383933e233",
+    "zh:7173f961833c564d83ed4994aaaefa7be849c2a63bbac3cd288ccf3be763ca21",
+    "zh:7ffce2dd580e15b98e0f2601d1da3bf8b4adeabe4c4de513f67f480871e0c594",
+    "zh:962433200cefbb96d009c1fa858e4a3068926ba85de60fa0a0cf321ce7e26697",
+    "zh:aba9b11d9e48a18fd3290f164ae4748d44f2a734402bc48b86a140edd64a60cd",
+    "zh:b9f7080226ab201cd80c8a1e6f5e5bb6d93cfd84bcf693845d35963933a37012",
+    "zh:dd1771c46668c1615900ab559a7e4dea552c615f3eff5cf611a85b7ede18bdc8",
+    "zh:f85abfcfe40475c878a7135e4abbb152454e9dc98b8e2b7b6928e7f9402ad127",
   ]
 }
 
