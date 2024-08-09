@@ -3,18 +3,9 @@
 
 provider "registry.opentofu.org/hashicorp/helm" {
   version     = "2.14.1"
-  constraints = "2.14.1"
+  constraints = ">= 2.14.1, < 3.0.0"
   hashes = [
-    "h1:ESfY25tOjqqS7hC1HGhd/xjbHCItrLzw3n00GxNxFQ8=",
-    "h1:FqcSwdgQbzu4rs/fA1iXjAEs5elyFPXr7b1X8UXsEes=",
-    "h1:PFb8ksHwmx5HBGEbCMQYa9TzjMp/WUmu8Y3JzhNgnn4=",
-    "h1:QdsvkJOruvPiged4hDYOa4Moixt91r+1lo75n26hR3o=",
     "h1:WB6ahIjX1hgmeB8Edn6AAImw5LrOvPxJP7pi0KhhEz0=",
-    "h1:ZkCNIxYiKOQvoQabha3YBtwrXIS4tjsNTwJUx0vkuV0=",
-    "h1:dsVVFN8A9UGIUEsnrS+A8HB00a85oNgId4RW325D8aE=",
-    "h1:gmKD4tz+rFX0Y1KW3QgDBChIgb3+Y55rmPG/YhVOvPg=",
-    "h1:rfzRmtYdbdb2aF2YBnr4HoZrD3azyF4OmY4nX1T7eLc=",
-    "h1:w2ppG4YB5ZyRgCKI8fyRfgoHq3EqCum4C3G35c925UQ=",
     "zh:3e0c73080563611451e7de1b5c28ce945da7027aac619df6506f8d5c420ba2d4",
     "zh:5b8760f2b9798cf3160a4db4001463a3f1001359c74a6ef601a81bfbc4c4bd74",
     "zh:64ab4ad0e650e717bf5932717a94b6f6be790b6f7f93b51da371c3383933e233",
@@ -30,9 +21,8 @@ provider "registry.opentofu.org/hashicorp/helm" {
 
 provider "registry.opentofu.org/hashicorp/kubernetes" {
   version     = "2.31.0"
-  constraints = "2.31.0"
+  constraints = ">= 2.31.0, < 3.0.0"
   hashes = [
-    "h1:MLk6rnv1ExXguVTT/lMa9VPubPYS6VF9sKBjzaVUASE=",
     "h1:z2qlqn6WbrjbezwQo4vvlwAgVUGz59klzDU4rlYhYi8=",
     "zh:0dd25babf78a88a61dd329b8c18538a295ea63630f1b69575e7898c89307da39",
     "zh:3138753e4b2ce6e9ffa5d65d73e9236169ff077c10089c7dc71031a0a139ff6d",
@@ -49,9 +39,8 @@ provider "registry.opentofu.org/hashicorp/kubernetes" {
 
 provider "registry.opentofu.org/hashicorp/local" {
   version     = "2.5.1"
-  constraints = "2.5.1"
+  constraints = ">= 2.5.1, < 3.0.0"
   hashes = [
-    "h1:87L+rpGao062xifb1VuG9YVFwp9vbDP6G2fgfYxUkQs=",
     "h1:GgW5qncKu4KnXLE1ZYv5iwmhSYtTNzsOvJAOQIyFR7E=",
     "zh:031c2c2070672b7e78e0aa15560839278dc57fe7cf1e58a617ac13c67b31d5fb",
     "zh:1ef64ea4f8382cd538a76f3d319f405d18130dc3280f1c16d6aaa52a188ecaa4",
@@ -68,9 +57,8 @@ provider "registry.opentofu.org/hashicorp/local" {
 
 provider "registry.opentofu.org/hashicorp/null" {
   version     = "3.2.2"
-  constraints = "3.2.2"
+  constraints = ">= 3.2.2, < 4.0.0"
   hashes = [
-    "h1:sU0t6ANQ4IfEwZbbBmcNeOCg2CDCViVb7L7QVfIHrCs=",
     "h1:xN1tSeF/rUBfaddk/AVqk4i65z/MMM9uVZWd2cWCCH0=",
     "zh:00e5877d19fb1c1d8c4b3536334a46a5c86f57146fd115c7b7b4b5d2bf2de86d",
     "zh:1755c2999e73e4d73f9de670c145c9a0dc5a373802799dff06a0e9c161354163",
@@ -87,9 +75,8 @@ provider "registry.opentofu.org/hashicorp/null" {
 
 provider "registry.opentofu.org/hashicorp/tls" {
   version     = "4.0.5"
-  constraints = "4.0.5"
+  constraints = ">= 4.0.5, < 5.0.0"
   hashes = [
-    "h1:LWGTWAUrC+/iTsNq0vxANvGOp+7Jnl4wAnSOW2Shqjc=",
     "h1:zEH0OgSkeXDqNWzmOUWDczrUwyyujAHvnbW79qdxVMI=",
     "zh:05a7dc3ac92005485714f87541ad6d0d478988b478c5774227a7d39b01660050",
     "zh:547e0def44080456169bf77c21037aa6dc9e7f3e644a8f6a2c5fc3e6c15cf560",
@@ -106,22 +93,9 @@ provider "registry.opentofu.org/hashicorp/tls" {
 
 provider "registry.opentofu.org/hetznercloud/hcloud" {
   version     = "1.48.0"
-  constraints = "1.48.0"
+  constraints = ">= 1.48.0, < 2.0.0"
   hashes = [
-    "h1:1AOSiuxS9o1RnIMg1hrs1xI5j2hNQrmv1+LALOoAbKw=",
-    "h1:KVmWTdok5mk2Puyuep7DwjfPKyzOlSWdqqUVbUENQHc=",
-    "h1:OASH060MIjDdJUBvd9CioCaELvtKD1ipwG5pQoi5GIc=",
-    "h1:Qcr+PjPNZmyyJeHZdGZEs5AiMuobnEEXCKoYIU0s7FQ=",
-    "h1:Xvv0Tvy5u7o9LxkaxoImIQ+dmk/s2TQUNnAVb8AvHyY=",
-    "h1:aarQsx/yvS5Xr4VHAxvO2WhhG0n3nZaXVHFhWF364ok=",
-    "h1:b1UlQELzpcGBj0mpuukcEdTGDZ740qpNd9FNsVvJmWM=",
-    "h1:mhU9aOi82XsBL8wjM8l3eTu0zIEk9hqSznTAX4mlW8E=",
     "h1:pdeMfdZHftUivK+TGABJI4fnRHvF0GFbCGWxh+uL+94=",
-    "h1:qMc9J9/AKK5L2mwjHt5SOybwhgHN1KnurqKjtAJKccw=",
-    "h1:sFjYyUVBymA3YNC+jTxu2CqJYlff+uRlZvb6f03Z6P4=",
-    "h1:sbjxzMtxkLOkhc1mbgVOmG7sCF7WZgTgRQqWPG/fld4=",
-    "h1:tmj1TeTwyeM6u3e0vR2ryNkgauErmEeRGGDJzl9EqUk=",
-    "h1:yQMfBy4LLbJZtQxCrXmaRuY8e2dFJAIMxJeJ9e0HlEU=",
     "zh:19d38d046e26153edcdd36ce8c0e16198aa9dea5186559651c4a75c455390573",
     "zh:3cb7c453067bcabed68275f812100685fc2f753f37c0e620d3358e642833b5f0",
     "zh:42cabdbb55dba02816be8d9d3fc30f51d610516cc54c3f057e6bb3ffc960b550",
