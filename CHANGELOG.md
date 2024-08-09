@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.5.2](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.1...v0.5.2) (2024-08-09)
+
+
+### Bug Fixes
+
+* do not pin module dependencies ([#42](https://github.com/hetznercloud/kubernetes-dev-env/issues/42)) ([4cb58cc](https://github.com/hetznercloud/kubernetes-dev-env/commit/4cb58ccb71fefc6a85d21563b5165c580a3509d4))
+* ignore temporary state files ([#34](https://github.com/hetznercloud/kubernetes-dev-env/issues/34)) ([5eb6bef](https://github.com/hetznercloud/kubernetes-dev-env/commit/5eb6bef5c53b5ea53f94f00b82f080b1278792ec))
+* make registry-port-forward down idempotent ([#38](https://github.com/hetznercloud/kubernetes-dev-env/issues/38)) ([bedb933](https://github.com/hetznercloud/kubernetes-dev-env/commit/bedb933cae34cb87187b09c821d3fb512e8c38f0))
+
 ## [0.5.1](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.0...v0.5.1) (2024-07-08)
 
 
