@@ -182,6 +182,19 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   }
 }
 
+resource "helm_release" "hcloud_csi_driver" {
+  count = var.deploy_csi_driver ? 1 : 0
+
+  depends_on = [kubernetes_secret_v1.hcloud_token]
+
+  name       = "hcloud-csi"
+  chart      = "hcloud-csi"
+  repository = "https://charts.hetzner.cloud"
+  namespace  = "kube-system"
+  version    = "2.9.0"
+  wait       = true
+}
+
 resource "helm_release" "docker_registry" {
   depends_on = [helm_release.cilium]
 

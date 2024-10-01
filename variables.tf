@@ -10,6 +10,11 @@ variable "deploy_hccm" {
   type        = bool
   default     = true
 }
+variable "deploy_csi_driver" {
+  description = "Deploy the csi-driver through Helm"
+  type        = bool
+  default     = false
+}
 variable "use_cloud_routes" {
   description = "Use the Hetzner Cloud network routes for Pod traffic. Enables hcloud-cloud-controller-manager routes controller and Cilium native routing. Does not work with Robot servers."
   type        = bool
