@@ -26,6 +26,12 @@ variable "worker_count" {
   default     = 1
 }
 
+variable "labels" {
+  description = "Additional labels that are added to all Hetzner Cloud resources"
+  type        = map(string)
+  default     = {}
+}
+
 # Hetzner Cloud
 variable "hcloud_token" {
   description = "Hetzner Cloud API token"
