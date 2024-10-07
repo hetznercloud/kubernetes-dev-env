@@ -5,9 +5,9 @@ provider "hcloud" {
 }
 
 locals {
-  labels = {
+  labels = merge(var.labels, {
     env = var.name
-  }
+  })
 }
 
 # SSH Key
