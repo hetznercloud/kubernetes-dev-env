@@ -5,7 +5,7 @@ provider "hcloud" {
 }
 
 locals {
-  labels = merge(var.labels, {
+  labels = merge(var.hcloud_labels, {
     env = var.name
   })
 }

@@ -26,12 +26,6 @@ variable "worker_count" {
   default     = 1
 }
 
-variable "labels" {
-  description = "Additional labels that are added to all Hetzner Cloud resources"
-  type        = map(string)
-  default     = {}
-}
-
 # Hetzner Cloud
 variable "hcloud_token" {
   description = "Hetzner Cloud API token"
@@ -52,6 +46,11 @@ variable "hcloud_image" {
   description = "Hetzner Cloud Image used for the environment"
   type        = string
   default     = "ubuntu-24.04"
+}
+variable "hcloud_labels" {
+  description = "Additional labels that are added to all Hetzner Cloud resources"
+  type        = map(string)
+  default     = {}
 }
 
 # K3S
