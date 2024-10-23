@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.6.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.2...v0.6.0) (2024-10-23)
+
+
+### Features
+
+* optional csi-driver deployment ([#51](https://github.com/hetznercloud/kubernetes-dev-env/issues/51)) ([331c11b](https://github.com/hetznercloud/kubernetes-dev-env/commit/331c11b92607a2a6851adcc02bda4c9f3d958c30)), closes [#50](https://github.com/hetznercloud/kubernetes-dev-env/issues/50)
+
+
+### Bug Fixes
+
+* Move infrastructure to Helsinki ([#57](https://github.com/hetznercloud/kubernetes-dev-env/issues/57)) ([08dfcfd](https://github.com/hetznercloud/kubernetes-dev-env/commit/08dfcfd83721cbc94bbecda43d6963815a42ab07))
+
 ## [0.5.2](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.1...v0.5.2) (2024-08-09)
 
 
