@@ -47,6 +47,11 @@ variable "hcloud_image" {
   type        = string
   default     = "ubuntu-24.04"
 }
+variable "hcloud_labels" {
+  description = "Additional labels that are added to all Hetzner Cloud resources"
+  type        = map(string)
+  default     = {}
+}
 
 # K3S
 variable "k3s_channel" {
