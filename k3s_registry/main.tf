@@ -20,8 +20,8 @@ variable "server" {
   })
 }
 
-resource "null_resource" "k3s_registry" {
-  triggers = {
+resource "terraform_data" "k3s_registry" {
+  triggers_replace = {
     id = var.server.id
   }
 

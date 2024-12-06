@@ -16,10 +16,10 @@ module "registry_control" {
   private_key = tls_private_key.ssh.private_key_openssh
 }
 
-resource "null_resource" "k3sup_control" {
+resource "terraform_data" "k3sup_control" {
   depends_on = [module.registry_control]
 
-  triggers = {
+  triggers_replace = {
     id = hcloud_server.control.id
     ip = hcloud_server_network.control.ip
   }
@@ -64,18 +64,18 @@ module "registry_worker" {
   private_key = tls_private_key.ssh.private_key_openssh
 }
 
-resource "null_resource" "k3sup_worker" {
+resource "terraform_data" "k3sup_worker" {
   count = var.worker_count
 
   depends_on = [module.registry_worker]
 
-  triggers = {
+  triggers_replace = {
     id = hcloud_server.worker[count.index].id
     ip = hcloud_server_network.worker[count.index].ip
 
     # Wait the control-plane to be initialized, and re-join the new cluster if the
     # control-plane server changed.
-    control_id = null_resource.k3sup_control.id
+    control_id = terraform_data.k3sup_control.id
   }
 
   connection {
@@ -105,7 +105,7 @@ resource "null_resource" "k3sup_worker" {
 # Configure kubernetes
 
 data "local_sensitive_file" "kubeconfig" {
-  depends_on = [null_resource.k3sup_control]
+  depends_on = [terraform_data.k3sup_control]
   filename   = local.kubeconfig_path
 }
 
