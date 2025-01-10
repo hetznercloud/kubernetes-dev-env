@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.7.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.6.0...v0.7.0) (2025-01-10)
+
+
+### Features
+
+* arbitrary additional labels on Hetzner resources ([#55](https://github.com/hetznercloud/kubernetes-dev-env/issues/55)) ([b3f4b39](https://github.com/hetznercloud/kubernetes-dev-env/commit/b3f4b39f35af1e3afb157d13113fdabb5a6d6fe5))
+
 ## [0.6.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.5.2...v0.6.0) (2024-10-23)
 
 
