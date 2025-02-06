@@ -183,7 +183,7 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
 
   set {
     name  = "env.HCLOUD_ENDPOINT.value"
-    value = var.hcloud_endpoint
+    value = var.hccm_hcloud_endpoint
   }
 }
 

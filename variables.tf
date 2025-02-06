@@ -52,7 +52,9 @@ variable "hcloud_labels" {
   type        = map(string)
   default     = {}
 }
-variable "hcloud_endpoint" {
+
+# hcloud-cloud-controller-manager
+variable "hccm_hcloud_endpoint" {
   description = "Sets the HCLOUD_ENDPOINT environment variable in the hcloud-cloud-controller-manager helm chart"
   type        = string
   default     = "https://api.hetzner.cloud/v1"
