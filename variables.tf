@@ -53,6 +53,13 @@ variable "hcloud_labels" {
   default     = {}
 }
 
+# hcloud-cloud-controller-manager
+variable "hccm_hcloud_endpoint" {
+  description = "Sets the HCLOUD_ENDPOINT environment variable in the hcloud-cloud-controller-manager helm chart"
+  type        = string
+  default     = "https://api.hetzner.cloud/v1"
+}
+
 # K3S
 variable "k3s_channel" {
   description = "k3S channel used for the environment"
