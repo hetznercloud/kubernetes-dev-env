@@ -180,6 +180,11 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
     value = tostring(var.use_cloud_routes)
     type  = "string"
   }
+
+  set {
+    name  = "env.HCLOUD_ENDPOINT.value"
+    value = var.hcloud_endpoint
+  }
 }
 
 resource "helm_release" "hcloud_csi_driver" {
