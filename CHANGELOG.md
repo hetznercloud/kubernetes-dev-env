@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.7.0...v0.8.0) (2025-02-06)
+
+
+### Features
+
+* allow setting HCLOUD_ENDPOINT env for hccm ([#83](https://github.com/hetznercloud/kubernetes-dev-env/issues/83)) ([06375c4](https://github.com/hetznercloud/kubernetes-dev-env/commit/06375c49abfbacb7b432477751b7a589d3528f83))
+
 ## [0.7.0](https://github.com/hetznercloud/kubernetes-dev-env/compare/v0.6.0...v0.7.0) (2025-01-10)
 
 
