@@ -1,0 +1,22 @@
+name: Releaser-pleaser
+
+on:
+  push:
+    branches: [main]
+  pull_request_target:
+    types:
+      - edited
+      - labeled
+      - unlabeled
+
+jobs:
+  releaser-pleaser:
+    # Do not run on forks.
+    if: github.repository == 'hetznercloud/kubernetes-dev-env'
+
+    runs-on: ubuntu-latest
+    steps:
+      - uses: apricote/releaser-pleaser@v0.5.0
+        with:
+          extra-files: |
+            example/main.tf
