@@ -33,7 +33,7 @@ jobs:
           setup-tools: |
             kubectl
             skaffold
-          kubectl: v1.32.3 # renovate: datasource=github-releases depName=kubernetes/kubernetes
+          kubectl: v1.32.4 # renovate: datasource=github-releases depName=kubernetes/kubernetes
           skaffold: v2.15.0 # renovate: datasource=github-releases depName=GoogleContainerTools/skaffold
 
       - name: Setup k3sup
