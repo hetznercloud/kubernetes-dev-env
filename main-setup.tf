@@ -207,7 +207,7 @@ resource "helm_release" "docker_registry" {
   chart      = "docker-registry"
   repository = "https://helm.twun.io"
   namespace  = "kube-system"
-  version    = "2.3.0"
+  version    = "3.0.0"
   wait       = true
 
   set {
