@@ -16,7 +16,7 @@ jobs:
 
     runs-on: ubuntu-latest
     steps:
-      - uses: apricote/releaser-pleaser@v0.5.1
+      - uses: apricote/releaser-pleaser@v0.6.0
         with:
           extra-files: |
             example/main.tf
