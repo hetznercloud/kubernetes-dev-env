@@ -31,7 +31,7 @@ resource "terraform_data" "k3sup_control" {
 
   provisioner "local-exec" {
     command = <<-EOT
-      k3sup install --print-config=false \
+      k3sup install \
         --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.control.ipv4_address}' \
         --k3s-channel='${var.k3s_channel}' \
