@@ -6,12 +6,6 @@
 
 - k3sup breaking changes (#117)
 
-## [v0.9.1](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.1)
-
-### Bug Fixes
-
-- k3sup breaking changes (#117)
-
 ## [v0.9.0](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.0)
 
 ### Features
