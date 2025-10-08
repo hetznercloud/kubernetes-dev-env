@@ -126,7 +126,7 @@ resource "kubernetes_secret_v1" "hcloud_token" {
 }
 
 provider "helm" {
-  kubernetes {
+  kubernetes = {
     config_path = data.local_sensitive_file.kubeconfig.filename
   }
 }
@@ -139,23 +139,25 @@ resource "helm_release" "cilium" {
   version    = "1.18.2"
   wait       = true
 
-  set {
-    name  = "operator.replicas"
-    value = "1"
-  }
-  set {
-    name  = "ipam.mode"
-    value = "kubernetes"
-  }
-  set {
-    name  = "routingMode"
-    value = var.use_cloud_routes ? "native" : "tunnel"
-  }
-  set {
-    # Only used if routingMode=native
-    name  = "ipv4NativeRoutingCIDR"
-    value = local.cluster_cidr
-  }
+  set = [
+    {
+      name  = "operator.replicas"
+      value = "1"
+    },
+    {
+      name  = "ipam.mode"
+      value = "kubernetes"
+    },
+    {
+      name  = "routingMode"
+      value = var.use_cloud_routes ? "native" : "tunnel"
+    },
+    {
+      # Only used if routingMode=native
+      name  = "ipv4NativeRoutingCIDR"
+      value = local.cluster_cidr
+    }
+  ]
 }
 
 resource "helm_release" "hcloud_cloud_controller_manager" {
@@ -170,21 +172,21 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   version    = "1.27.0"
   wait       = true
 
-  set {
-    name  = "networking.enabled"
-    value = "true"
-  }
-
-  set {
-    name  = "env.HCLOUD_NETWORK_ROUTES_ENABLED.value"
-    value = tostring(var.use_cloud_routes)
-    type  = "string"
-  }
-
-  set {
-    name  = "env.HCLOUD_ENDPOINT.value"
-    value = var.hccm_hcloud_endpoint
-  }
+  set = [
+    {
+      name  = "networking.enabled"
+      value = "true"
+    },
+    {
+      name  = "env.HCLOUD_NETWORK_ROUTES_ENABLED.value"
+      value = tostring(var.use_cloud_routes)
+      type  = "string"
+    },
+    {
+      name  = "env.HCLOUD_ENDPOINT.value"
+      value = var.hccm_hcloud_endpoint
+    }
+  ]
 }
 
 resource "helm_release" "hcloud_csi_driver" {
@@ -210,18 +212,20 @@ resource "helm_release" "docker_registry" {
   version    = "3.0.0"
   wait       = true
 
-  set {
-    name  = "service.clusterIP"
-    value = module.registry_control.registry_service_ip
-  }
-  set {
-    name  = "tolerations[0].key"
-    value = "node.cloudprovider.kubernetes.io/uninitialized"
-  }
-  set {
-    name  = "tolerations[0].operator"
-    value = "Exists"
-  }
+  set = [
+    {
+      name  = "service.clusterIP"
+      value = module.registry_control.registry_service_ip
+    },
+    {
+      name  = "tolerations[0].key"
+      value = "node.cloudprovider.kubernetes.io/uninitialized"
+    },
+    {
+      name  = "tolerations[0].operator"
+      value = "Exists"
+    }
+  ]
 }
 
 # Export files
