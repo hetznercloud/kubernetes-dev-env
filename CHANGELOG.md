@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.9.2](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.2)
+
+### Bug Fixes
+
+- helm provider API changes (#149)
+
 ## [v0.9.1](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.1)
 
 ### Bug Fixes
