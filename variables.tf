@@ -40,7 +40,7 @@ variable "hcloud_server_type" {
 variable "hcloud_location" {
   description = "Hetzner Cloud Location used for the environment"
   type        = string
-  default     = "fsn1"
+  default     = "hel1"
 }
 variable "hcloud_image" {
   description = "Hetzner Cloud Image used for the environment"
