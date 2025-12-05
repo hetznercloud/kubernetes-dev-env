@@ -14,7 +14,7 @@ terraform {
     }
     kubernetes = {
       source  = "hashicorp/kubernetes"
-      version = ">= 2.31.0, < 3.0.0"
+      version = "< 4.0.0"
     }
 
     hcloud = {
