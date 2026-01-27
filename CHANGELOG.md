@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.10.0](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.0)
+
+### Features
+
+- allow specifying exact k3s version (#179)
+
 ## [v0.9.4](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.9.4)
 
 ### Bug Fixes
