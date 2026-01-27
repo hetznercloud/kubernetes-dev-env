@@ -8,7 +8,7 @@ locals {
   kubeconfig_path = abspath("${path.root}/files/kubeconfig.yaml")
   env_path        = abspath("${path.root}/files/env.sh")
 
-  k3sup_version_flag = var.k3s_version != "" ? "--k3s-version='${var.k3s_version}'" : "--k3s-channel='${var.k3s_channel}'"
+  k3sup_version_flag = var.k3s_version != null ? "--k3s-version='${var.k3s_version}'" : "--k3s-channel='${var.k3s_channel}'"
 }
 
 module "registry_control" {
