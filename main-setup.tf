@@ -7,6 +7,8 @@ locals {
 
   kubeconfig_path = abspath("${path.root}/files/kubeconfig.yaml")
   env_path        = abspath("${path.root}/files/env.sh")
+
+  k3sup_version_flag = var.k3s_version != "" ? "--k3s-version='${var.k3s_version}'" : "--k3s-channel='${var.k3s_channel}'"
 }
 
 module "registry_control" {
@@ -34,7 +36,7 @@ resource "terraform_data" "k3sup_control" {
       k3sup install \
         --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.control.ipv4_address}' \
-        --k3s-channel='${var.k3s_channel}' \
+        ${local.k3sup_version_flag} \
         --k3s-extra-args="\
           --kubelet-arg=cloud-provider=external \
           --cluster-cidr='${local.cluster_cidr}' \
@@ -89,7 +91,7 @@ resource "terraform_data" "k3sup_worker" {
         --ssh-key='${local_sensitive_file.ssh_private.filename}' \
         --ip='${hcloud_server.worker[count.index].ipv4_address}' \
         --server-ip='${hcloud_server.control.ipv4_address}' \
-        --k3s-channel='${var.k3s_channel}' \
+        ${local.k3sup_version_flag} \
         --k3s-extra-args="\
           --kubelet-arg='cloud-provider=external' \
           %{~if var.use_cloud_routes~}

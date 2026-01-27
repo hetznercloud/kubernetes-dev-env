@@ -66,3 +66,9 @@ variable "k3s_channel" {
   type        = string
   default     = "stable"
 }
+
+variable "k3s_version" {
+  description = "k3s version used for the environment"
+  type        = string
+  default     = ""
+}
