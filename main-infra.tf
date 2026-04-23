@@ -28,7 +28,7 @@ resource "local_sensitive_file" "ssh_public" {
 
 resource "hcloud_ssh_key" "default" {
   name       = var.name
-  public_key = tls_private_key.ssh.public_key_openssh
+  public_key = trim(tls_private_key.ssh.public_key_openssh, "\n")
   labels     = local.labels
 }
 
