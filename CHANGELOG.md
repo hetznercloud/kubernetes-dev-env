@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.10.1](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.1)
+
+### Bug Fixes
+
+- trim newline on public key (#216)
+
 ## [v0.10.0](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.0)
 
 ### Features
