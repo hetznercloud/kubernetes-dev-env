@@ -21,14 +21,14 @@ jobs:
         working-directory: example
 
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
 
-      - uses: opentofu/setup-opentofu@v2
+      - uses: opentofu/setup-opentofu@847eaa4afeb791b06daa46e8eafa8b1b68d7cfb4 # v2
         with:
           tofu_version: v1.12.0 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
-      - uses: yokawasa/action-setup-kube-tools@v0.13.5
+      - uses: yokawasa/action-setup-kube-tools@9d39563c24d4a419d1a8289c34d6da5a6171252c # v0.13.5
         with:
           setup-tools: |
             kubectl
@@ -43,11 +43,11 @@ jobs:
           curl https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup -sSL -o /usr/local/bin/k3sup
           chmod +x /usr/local/bin/k3sup
 
-      - uses: actions/setup-go@v6
+      - uses: actions/setup-go@4a3601121dd01d1626a1e23e37211e3254c1c06c # v6
         with:
           go-version-file: test-app/go.mod
 
-      - uses: hetznercloud/tps-action@main
+      - uses: hetznercloud/tps-action@dc6d67c5768ca43b840429b6c7409cda61cf4092 # main
 
       - name: Swap module source
         run: sed -i -e 's|source = ".*"|source = "./.."|' main.tf
