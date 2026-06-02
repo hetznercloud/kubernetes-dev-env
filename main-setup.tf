@@ -14,7 +14,10 @@ locals {
 module "registry_control" {
   source = "./k3s_registry"
 
-  server      = hcloud_server.control
+  server = {
+    id           = hcloud_server.control.id
+    ipv4_address = hcloud_server.control.ipv4_address
+  }
   private_key = tls_private_key.ssh.private_key_openssh
 }
 
