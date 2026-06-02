@@ -1,5 +1,12 @@
 # Changelog
 
+## [v0.10.2](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.2)
+
+### Bug Fixes
+
+- hcloud_server deprecation warnings (#235)
+- more hcloud_server deprecation warnings
+
 ## [v0.10.1](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.1)
 
 ### Bug Fixes
