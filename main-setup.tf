@@ -62,7 +62,10 @@ module "registry_worker" {
 
   count = var.worker_count
 
-  server      = hcloud_server.worker[count.index]
+  server = {
+    id           = hcloud_server.worker[count.index].id,
+    ipv4_address = hcloud_server.worker[count.index].ipv4_address,
+  }
   private_key = tls_private_key.ssh.private_key_openssh
 }
 
