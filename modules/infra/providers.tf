@@ -8,18 +8,14 @@ terraform {
       source  = "hashicorp/tls"
       version = ">= 4.0.5, < 5.0.0"
     }
-    helm = {
-      source  = "hashicorp/helm"
-      version = "< 4.0.0"
-    }
-    kubernetes = {
-      source  = "hashicorp/kubernetes"
-      version = "< 4.0.0"
-    }
 
     hcloud = {
       source  = "hetznercloud/hcloud"
       version = ">= 1.48.0, < 2.0.0"
     }
   }
+}
+
+provider "hcloud" {
+  token = var.hcloud_token
 }

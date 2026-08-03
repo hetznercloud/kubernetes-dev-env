@@ -5,16 +5,6 @@ variable "name" {
   default     = "dev"
 }
 
-variable "deploy_hccm" {
-  description = "Deploy hcloud-cloud-controller-manager through Helm"
-  type        = bool
-  default     = true
-}
-variable "deploy_csi_driver" {
-  description = "Deploy the csi-driver through Helm"
-  type        = bool
-  default     = false
-}
 variable "use_cloud_routes" {
   description = "Use the Hetzner Cloud network routes for Pod traffic. Enables hcloud-cloud-controller-manager routes controller and Cilium native routing. Does not work with Robot servers."
   type        = bool
@@ -24,6 +14,16 @@ variable "worker_count" {
   description = "Number of worker for the environment"
   type        = number
   default     = 1
+}
+variable "cluster_cidr" {
+  description = "CIDR range for the Pods. Must be included in the range of the network (10.0.0.0/8) but must not overlap with the Subnet (10.0.0.0/24)."
+  type        = string
+  default     = "10.244.0.0/16"
+}
+variable "output_dir" {
+  description = "Directory the generated files (SSH keys, kubeconfig, env.sh) are written to. Defaults to the `files` directory of the root module."
+  type        = string
+  default     = null
 }
 
 # Hetzner Cloud
@@ -51,13 +51,6 @@ variable "hcloud_labels" {
   description = "Additional labels that are added to all Hetzner Cloud resources"
   type        = map(string)
   default     = {}
-}
-
-# hcloud-cloud-controller-manager
-variable "hccm_hcloud_endpoint" {
-  description = "Sets the HCLOUD_ENDPOINT environment variable in the hcloud-cloud-controller-manager helm chart"
-  type        = string
-  default     = "https://api.hetzner.cloud/v1"
 }
 
 # K3S
