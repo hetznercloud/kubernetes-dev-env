@@ -23,4 +23,5 @@ jobs:
       - uses: apricote/releaser-pleaser@a1ce9493fd3f3abe60f22c37249d257bc10081dc # v0.8.0
         with:
           extra-files: |
-            example/main.tf
+            example/infra/main.tf
+            example/k8s/main.tf
