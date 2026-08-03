@@ -8,7 +8,7 @@ data "terraform_remote_state" "infra" {
 }
 
 module "k8s" {
-  source = "../../modules/k8s" # x-releaser-pleaser-version
+  source = "github.com/hetznercloud/kubernetes-dev-env//modules/k8s?ref=v0.10.2" # x-releaser-pleaser-version
 
   hcloud_token = var.hcloud_token
 
