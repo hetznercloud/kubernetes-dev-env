@@ -1,5 +1,5 @@
 module "infra" {
-  source = "github.com/hetznercloud/kubernetes-dev-env//modules/infra?ref=v0.10.2" # x-releaser-pleaser-version
+  source = "github.com/hetznercloud/kubernetes-dev-env//modules/infra?ref=v0.11.0" # x-releaser-pleaser-version
 
   name         = "k8s-dev-${replace(var.name, "/[^a-zA-Z0-9-_]/", "-")}"
   hcloud_token = var.hcloud_token

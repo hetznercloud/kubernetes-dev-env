@@ -1,5 +1,11 @@
 # Changelog
 
+## [v0.11.0](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.11.0)
+
+### Features
+
+- split into infra and k8s modules (#251)
+
 ## [v0.10.2](https://github.com/hetznercloud/kubernetes-dev-env/releases/tag/v0.10.2)
 
 ### Bug Fixes
