@@ -88,7 +88,7 @@ resource "helm_release" "hcloud_csi_driver" {
   chart      = "hcloud-csi"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "2.22.2"
+  version    = "2.23.0"
   wait       = true
 }
 
