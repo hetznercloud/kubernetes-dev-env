@@ -59,7 +59,7 @@ resource "helm_release" "hcloud_cloud_controller_manager" {
   chart      = "hcloud-cloud-controller-manager"
   repository = "https://charts.hetzner.cloud"
   namespace  = "kube-system"
-  version    = "1.39.1"
+  version    = "1.39.2"
   wait       = true
 
   set = [
