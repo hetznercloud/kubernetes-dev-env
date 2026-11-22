@@ -28,7 +28,7 @@ jobs:
           tofu_version: v1.13.9 # renovate: datasource=github-releases depName=opentofu/opentofu
           tofu_wrapper: false
 
-      - uses: yokawasa/action-setup-kube-tools@b16d49b2c459d33cf9d4c300a220ef0bcdbc730a # v0.14.0
+      - uses: yokawasa/action-setup-kube-tools@f8b2f6cdd1eb8575530049beacfe5d04c0ea8944 # v0.14.1
         with:
           setup-tools: |
             kubectl
@@ -43,7 +43,7 @@ jobs:
           curl https://github.com/alexellis/k3sup/releases/download/$K3SUP_VERSION/k3sup -sSL -o /usr/local/bin/k3sup
           chmod +x /usr/local/bin/k3sup
 
-      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7
+      - uses: actions/setup-go@d8cbb8045d7f43706b9177cceb36c1f91a6644d5 # v7
         with:
           go-version-file: test-app/go.mod
 
